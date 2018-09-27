@@ -11,8 +11,8 @@ import javax.validation.ConstraintValidatorContext;
 /**
  * 判断2个值比较是否相等
  *
- * @author gelif
- * @since 2015-5-18
+ * @author geewit
+ * @since 2015-05-18
  */
 public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Object> {
     private transient final static Logger logger = LoggerFactory.getLogger(FieldMatchValidator.class);
@@ -40,7 +40,7 @@ public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Obje
             logger.debug("secondObj = " + secondObj);
             return firstObj != null && firstObj.equals(secondObj);
         } catch (final Exception e) {
-            logger.warn(e.toString());
+            logger.warn(e.getMessage());
         }
         return true;
     }

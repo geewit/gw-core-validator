@@ -14,18 +14,19 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 /**
  * 2个值比较是否相等
  *
- * @author gelif
- * @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match")
- * <p>
+ * @author geewit
+ * @since 2015-05-18
+ *
  * Example, compare more than 1 pair of fields:
- * @FieldMatch.List({
- * @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match"),
- * @FieldMatch(first = "email", second = "confirmEmail", message = "The email fields must match")})
- * @since 2015-5-18
+ *
  * Validation annotation to validate that 2 fields have the same value.
  * An array of fields and their matching confirmation fields can be supplied.
  * <p>
  * Example, compare 1 pair of fields:
+ * {@code @FieldMatch.List({
+ *  * @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match"),
+ *  * @FieldMatch(first = "email", second = "confirmEmail", message = "The email fields must match")})
+ * }
  */
 @Target({TYPE, ANNOTATION_TYPE})
 @Retention(RUNTIME)
@@ -33,7 +34,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 @SuppressWarnings({"unchecked", "unused"})
 public @interface FieldMatch {
-    String message() default "{constraints.fieldmatch}";
+    String message() default "{javax.validation.constraints.FieldMatch.message}";
 
     /**
      * @return The first field
