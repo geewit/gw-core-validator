@@ -34,18 +34,13 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = FieldMatchValidator.class)
 @Documented
 @SuppressWarnings({"unchecked", "unused"})
-public @interface FieldMatch {
-    String message() default "{javax.validation.constraints.FieldMatch.message}";
+public @interface AnyNotEmpty {
+    String message() default "{javax.validation.constraints.AnyNotEmpty.message}";
 
     /**
      * @return The first field
      */
-    String first();
-
-    /**
-     * @return The second field
-     */
-    String second();
+    String[] parameters() default {};
 
     Class<?>[] groups() default {};
 
@@ -54,12 +49,12 @@ public @interface FieldMatch {
     /**
      * Defines several <code>@FieldMatch</code> annotations on the same element
      *
-     * @see FieldMatch
+     * @see AnyNotEmpty
      */
     @Target({TYPE, ANNOTATION_TYPE})
     @Retention(RUNTIME)
     @Documented
     @interface List {
-        FieldMatch[] value();
+        AnyNotEmpty[] value();
     }
 }

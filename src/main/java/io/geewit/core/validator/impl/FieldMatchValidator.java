@@ -14,6 +14,7 @@ import javax.validation.ConstraintValidatorContext;
  * @author geewit
  * @since 2015-05-18
  */
+@SuppressWarnings({"unused"})
 public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Object> {
     private transient final static Logger logger = LoggerFactory.getLogger(FieldMatchValidator.class);
 
@@ -22,14 +23,12 @@ public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Obje
 
     @Override
     public void initialize(final FieldMatch constraintAnnotation) {
-        //logger.debug("FieldMatchValidator.initialize");
         firstFieldName = constraintAnnotation.first();
         secondFieldName = constraintAnnotation.second();
     }
 
     @Override
     public boolean isValid(final Object value, final ConstraintValidatorContext context) {
-        //logger.debug("FieldMatchValidator.isValid");
         try {
             final Object firstObj = BeanUtils.getProperty(value, firstFieldName);
             final Object secondObj = BeanUtils.getProperty(value, secondFieldName);
