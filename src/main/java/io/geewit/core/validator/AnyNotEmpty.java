@@ -1,6 +1,6 @@
 package io.geewit.core.validator;
 
-import io.geewit.core.validator.impl.FieldMatchValidator;
+import io.geewit.core.validator.impl.AnyNotEmptyValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -31,7 +31,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  */
 @Target({TYPE, ANNOTATION_TYPE})
 @Retention(RUNTIME)
-@Constraint(validatedBy = FieldMatchValidator.class)
+@Constraint(validatedBy = AnyNotEmptyValidator.class)
 @Documented
 @SuppressWarnings({"unchecked", "unused"})
 public @interface AnyNotEmpty {
