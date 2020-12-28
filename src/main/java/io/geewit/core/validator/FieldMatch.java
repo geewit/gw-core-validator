@@ -47,6 +47,12 @@ public @interface FieldMatch {
      */
     String second();
 
+    /**
+     * 允许为null
+     * @return
+     */
+    boolean allowNull() default true;
+
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};

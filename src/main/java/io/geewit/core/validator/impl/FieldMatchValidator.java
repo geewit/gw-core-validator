@@ -20,11 +20,13 @@ public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Obje
 
     private String firstFieldName;
     private String secondFieldName;
+    private boolean allowNull;
 
     @Override
     public void initialize(final FieldMatch constraintAnnotation) {
         firstFieldName = constraintAnnotation.first();
         secondFieldName = constraintAnnotation.second();
+        allowNull = constraintAnnotation.allowNull();
     }
 
     @Override
@@ -33,7 +35,7 @@ public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Obje
             final Object firstObj = BeanUtils.getProperty(value, firstFieldName);
             final Object secondObj = BeanUtils.getProperty(value, secondFieldName);
             if (firstObj == null || secondObj == null) {
-                return true;
+                return allowNull;
             }
             logger.debug("firstObj = " + firstObj);
             logger.debug("secondObj = " + secondObj);
