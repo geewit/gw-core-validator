@@ -9,7 +9,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 /**
- * 判断2个值比较是否相等
+ * 判断值不能全为空
  *
  * @author geewit
  * @since 2015-05-18

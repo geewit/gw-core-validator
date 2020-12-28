@@ -13,7 +13,7 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * 2个值比较是否相等
+ * 判断值不能全为空
  *
  * @author geewit
  * @since 2015-05-18
@@ -24,9 +24,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * An array of fields and their matching confirmation fields can be supplied.
  * <p>
  * Example, compare 1 pair of fields:
- * {@code @FieldMatch.List({
- *  * @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match"),
- *  * @FieldMatch(first = "email", second = "confirmEmail", message = "The email fields must match")})
+ * {@code @AnyNotEmpty(parameters = {"field1", "field2", message = "The field1 and field2 must not all empty")})
  * }
  */
 @Target({TYPE, ANNOTATION_TYPE})
